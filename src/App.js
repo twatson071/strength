@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
-import { Button, Row, Col, Card, CardTitle, CardFooter } from 'reactstrap';
+import { Button, Row, Col, Card, CardTitle, CardFooter, Navbar,  NavbarBrand,  NavItem,  NavLink, Nav } from 'reactstrap';
 
 const Home = () => (
   <div className="App">
@@ -138,8 +138,10 @@ const Home = () => (
 );
 
 const About = () => (
-  <div>
-    <h2>About</h2>
+<div className="App">
+    <div className="LoginBox">
+      <h1>test</h1>
+    </div>
   </div>
 );
 
@@ -175,25 +177,23 @@ const Topics = ({ match }) => (
 
 const BasicExample = () => (
   <Router>
-    <div>
-      <ul>
-        <li>
-          <Link to="/">Home</Link>
-        </li>
-        <li>
-          <Link to="/about">About</Link>
-        </li>
-        <li>
-          <Link to="/topics">Topics</Link>
-        </li>
-      </ul>
+
+        <Navbar color="light" light expand="lg" style={{width:'100%'}}>
+                         <NavbarBrand href="/">Home</NavbarBrand>
+                                       <Nav className="ml-auto" navbar>
+              <NavItem>
+                <NavLink href="/about/">About</NavLink>
+              </NavItem>
+
 
       <hr />
 
       <Route exact path="/" component={Home} />
       <Route path="/about" component={About} />
       <Route path="/topics" component={Topics} />
-    </div>
+                    </Nav>
+                    </Navbar>
+
   </Router>
 );
 export default BasicExample;
